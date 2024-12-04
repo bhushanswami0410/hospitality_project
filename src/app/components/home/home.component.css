@@ -1,0 +1,21 @@
+/* Remove any bottom margin/padding from section */
+section.vh-100 {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  
+  /* Ensure container-fluid does not add extra padding */
+  .container-fluid.h-custom {
+    padding-bottom: 0;
+  }
+  
+  /* Remove any margin on the row to prevent extra space */
+  .row {
+    margin-bottom: 0;
+  }
+  
+  /* Optional: Set a specific height for the section if needed (if vh-100 is causing unexpected height) */
+  section.vh-100 {
+    height: 75vh; /* Or a specific value */
+  }
+  

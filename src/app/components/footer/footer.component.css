@@ -1,0 +1,19 @@
+/* Ensure the page takes full height */
+html, body {
+    height: 100%;
+    margin: 0;
+  }
+
+  /* Make the footer fixed at the bottom */
+  footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 100;
+  }
+  
+  /* Add some padding to the content to avoid overlap with footer */
+  .content {
+    padding-bottom: 60px; /* Adjust this based on footer height */
+  }
+ 
