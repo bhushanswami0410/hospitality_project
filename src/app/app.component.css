@@ -1,0 +1,38 @@
+/* Make the parent container take the full viewport height */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+/* Center the content vertically and horizontally using Flexbox */
+.home_content {
+    display: flex;
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically */
+    height: 100vh; /* Full viewport height */
+}
+/* General Footer Styles */
+.footer_class {
+    background-color: #333;  /* Set a background color (optional) */
+    color: #fff;             /* Set text color (optional) */
+    padding: 10px 0;         /* Decrease the height by using padding */
+    text-align: center;      /* Center the text inside the footer */
+    font-size: 14px;         /* Adjust font size (optional) */
+}
+
+/* Adjust footer for smaller devices */
+@media (max-width: 768px) {
+    .footer_class {
+        font-size: 12px;      /* Reduce font size for smaller screens */
+        padding: 8px 0;       /* Decrease padding on smaller screens */
+    }
+}
+
+/* Extra Small Devices (Phones) */
+@media (max-width: 576px) {
+    .footer_class {
+        font-size: 10px;      /* Further reduce font size */
+        padding: 6px 0;       /* Further reduce padding */
+    }
+}
