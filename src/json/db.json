@@ -1,0 +1,344 @@
+{
+  "patients": [
+    {
+      "id": "1",
+      "name": "Bhushan Swami",
+      "email": "bhushan@gmail.com",
+      "mobile": "8999857116",
+      "sex": "Male",
+      "address": "Pune"
+    },
+    {
+      "id": "2",
+      "name": "Damini Swami",
+      "email": "daminiaglawe@gmail.com",
+      "mobile": "9930726258",
+      "sex": "Female",
+      "address": "Pune"
+    },
+    {
+      "id": "3",
+      "name": "Aditya Pargunde",
+      "email": "aditya.pargunde@gmail.com",
+      "mobile": "9975524228",
+      "sex": "Male",
+      "address": "Pune"
+    },
+    {
+      "id": "4",
+      "name": "Samarth Jadhav",
+      "email": "samarthjadhav@gmail.com",
+      "mobile": "9168253315",
+      "sex": "Male",
+      "address": "Solapur"
+    },
+    {
+      "id": "5",
+      "name": "Ketan Hiremath",
+      "email": "ketanhiremath@gmail.com",
+      "mobile": "8007027927",
+      "sex": "Male",
+      "address": "Pune"
+    },
+    {
+      "id": "6",
+      "name": "Mahesh Channaram",
+      "email": "maheshchannaram@gmail.com",
+      "mobile": "9552863170",
+      "sex": "Male",
+      "address": "Pune"
+    },
+    {
+      "id": "7",
+      "name": "Kaustubh Kamale",
+      "email": "kaustubhkamale@gmail.com",
+      "mobile": "8097612910",
+      "sex": "Male",
+      "address": "Pune"
+    }
+  ],
+  "doctors": [
+    {
+      "dr_id": "1",
+      "name": "Dr. Shaikh",
+      "degree": "MBBS & MD",
+      "Specialization": "Physician",
+      "exp": "10+",
+      "result": "90%",
+      "id": "3823",
+      "email": "shaikh@gmail.com"
+    },
+    {
+      "dr_id": "2",
+      "name": "Dr. Iyyer",
+      "degree": "BHMS",
+      "Specialization": "Gynaechology",
+      "exp": "8+",
+      "result": "80%",
+      "id": "3c9c",
+      "email": "iyyer@gmail.com"
+    },
+    {
+      "dr_id": "3",
+      "name": "Dr. Rajshekhar swami",
+      "degree": "MBBS & MD",
+      "Specialization": "Physician",
+      "exp": "11+",
+      "result": "85%",
+      "id": "c8d3",
+      "email": "rajshekharswami@gmail.com"
+    },
+    {
+      "dr_id": "4",
+      "name": "Dr. Mazar",
+      "degree": "MBBS & MS",
+      "Specialization": "Eye",
+      "exp": "15+",
+      "result": "95%",
+      "id": "1f18",
+      "email": "mazar@gmail.com"
+    },
+    {
+      "dr_id": "5",
+      "name": "Dr. Jaydev",
+      "degree": "Bsc & DMLT",
+      "Specialization": "Pythologist",
+      "exp": "40+",
+      "result": "95%",
+      "id": "1f19",
+      "email": "jaydevswami12@gmail.com"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "diseases": [
+    {
+      "ds_id": "1",
+      "name": "Routin check-up",
+      "id": "a7c4"
+    },
+    {
+      "ds_id": "2",
+      "name": "Cold & fever ",
+      "id": "3e27"
+    },
+    {
+      "ds_id": "3",
+      "name": "Stomach related issue",
+      "id": "5fe5"
+    },
+    {
+      "ds_id": "4",
+      "name": "Eye Related issue",
+      "id": "8b4d"
+    },
+    {
+      "ds_id": "5",
+      "name": "Bones Related issue",
+      "id": "ca0e"
+    },
+    {
+      "ds_id": "6",
+      "name": "Teeth Related issue",
+      "id": "c83d"
+    },
+    {
+      "ds_id": "7",
+      "name": "Skin or Hair Related issue",
+      "id": "b357"
+    },
+    {
+      "ds_id": "8",
+      "name": "Gynaecological problems",
+      "id": "1f7c"
+    },
+    {
+      "ds_id": "9",
+      "name": "Heart Related issue",
+      "id": "a617"
+    },
+    {
+      "ds_id": "10",
+      "name": "Mental hEALTH Related issue",
+      "id": "685f"
+    },
+    {
+      "ds_id": "11",
+      "name": "Other",
+      "id": "2baa"
+    }
+  ],
+  "appoitment": [
+    {
+      "id": "93e1",
+      "formData": {
+        "ap_id": 6378,
+        "name": "Damini Aglawe",
+        "date_time": "2024-12-23T21:00",
+        "doctor_id": "1",
+        "doctor_name": "Dr. Shaikh",
+        "doctor_email": "shaikh@gmail.com",
+        "diseases": "Other",
+        "email": "daminiaglawe30@gmail.com"
+      }
+    }
+  ],
+  "users": [
+    {
+      "us_id": "",
+      "name": "",
+      "email": "",
+      "phone": "",
+      "password": "",
+      "cnf_password": "",
+      "role": "",
+      "address": "",
+      "id": "588e",
+      "date_time": ""
+    },
+    {
+      "id": "f685",
+      "formData": {
+        "name": "Aditya Pargunde",
+        "email": "aditya@gmail.com",
+        "contactNumber": "8999857116",
+        "password": "123456",
+        "confirmPassword": "123456",
+        "role": "receptionist",
+        "address": "",
+        "date_time": "2024-12-23 20:52:26"
+      }
+    },
+    {
+      "id": "62f3",
+      "formData": {
+        "name": "Damini Aglawe",
+        "email": "daminiaglawe30@gmail.com",
+        "contactNumber": "8999857116",
+        "password": "123456",
+        "confirmPassword": "123456",
+        "role": "patient",
+        "address": "",
+        "date_time": "2024-12-23 20:54:30"
+      }
+    },
+    {
+      "id": "0000",
+      "formData": {
+        "name": "Imatiyaz Shaikh",
+        "email": "shaikh@gmail.com",
+        "contactNumber": "8999857116",
+        "password": "123456",
+        "confirmPassword": "123456",
+        "role": "doctor",
+        "address": "",
+        "date_time": "2024-12-23 20:55:19"
+      }
+    },
+    {
+      "id": "3fa3",
+      "formData": {
+        "name": "bhushan swami",
+        "email": "bhushanswami0410@gmail.com",
+        "contactNumber": "8999857116",
+        "password": "123456",
+        "confirmPassword": "123456",
+        "role": "patient",
+        "address": "",
+        "date_time": "2024-12-23 20:56:4"
+      }
+    },
+    {
+      "id": "7251",
+      "formData": {
+        "name": "Jaydev Swami",
+        "email": "jaydevswami12@gmail.com",
+        "contactNumber": "8999857116",
+        "password": "123456",
+        "confirmPassword": "123456",
+        "role": "doctor",
+        "address": "",
+        "date_time": "2024-12-23 20:57:49"
+      }
+    },
+    {
+      "id": "bd60",
+      "formData": {
+        "name": "Bhushan Swami",
+        "email": "admin@gmail.com",
+        "contactNumber": "8999857116",
+        "password": "123456",
+        "confirmPassword": "123456",
+        "role": "admin",
+        "address": "",
+        "date_time": "2024-12-26 9:58:49"
+      }
+    },
+    {
+      "id": "7f06",
+      "formData": {
+        "name": "iyyar",
+        "email": "iyyar123@gmail.com",
+        "contactNumber": "9930726258",
+        "password": "123456",
+        "confirmPassword": "123456",
+        "role": "doctor",
+        "address": "",
+        "date_time": "2024-12-26 14:47:9"
+      }
+    },
+    {
+      "id": "0623",
+      "formData": {
+        "name": "anusaya Swami",
+        "email": "anusayaswami@gmail.com",
+        "contactNumber": "8999857116",
+        "password": "123456",
+        "confirmPassword": "123456",
+        "role": "patient",
+        "address": "",
+        "date_time": "2024-12-27 13:34:54"
+      }
+    },
+    {
+      "id": "3b40",
+      "formData": {
+        "name": "Sayyad Mazar",
+        "email": "mazar@gmail.com",
+        "contactNumber": "8999857116",
+        "password": "123456",
+        "confirmPassword": "123456",
+        "role": "doctor",
+        "address": "",
+        "date_time": "2024-12-27 13:37:19"
+      }
+    },
+    {
+      "id": "15d6",
+      "formData": {
+        "name": "abhishek shukla",
+        "email": "abhishekshukla@gmail.com",
+        "contactNumber": "8999857116",
+        "password": "123456",
+        "confirmPassword": "123456",
+        "role": "patient",
+        "address": "",
+        "date_time": "2025-1-6 14:32:0"
+      }
+    },
+    {
+      "id": "6e9e",
+      "formData": {
+        "name": "Ganesh Bagul",
+        "email": "ganeshbagul@gmail.com",
+        "contactNumber": "8999857116",
+        "password": "123456",
+        "confirmPassword": "123456",
+        "role": "patient",
+        "address": "",
+        "date_time": "2025-1-7 16:38:21"
+      }
+    }
+  ]
+}

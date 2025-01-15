@@ -1,0 +1,176 @@
+
+<div class="middle-content">
+    <div class="container mt-5">
+        <!-- Welcome Section -->
+        <div class="text-center mb-4">
+            <h1>Welcome, {{ patientData.name.split(' ')[0] }}</h1>
+        </div>
+
+        <!-- Patient Information -->
+        <div class="patient-info mb-5">
+            <h4 class="fw-bold text-center mb-3">Patient Information</h4>
+            <table class="table table-bordered table-striped table-hover">
+                <thead class="table-info">
+                    <tr>
+                        <th colspan="2" class="text-center">Patient Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="fw-bold text-secondary">Name</td>
+                        <td class="text-primary">Mr/Ms.{{ patientData.name }}</td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold text-secondary">Email</td>
+                        <td class="text-primary">{{ patientData.email }}</td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold text-secondary">Phone</td>
+                        <td class="text-primary">{{ patientData.contactNumber }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Appointment Booking -->
+        <div class="appointment-form bg-transparent text-white p-4 mb-5">
+            <h5 class="text-center mb-4">Book Your Appointment</h5>
+            <form (ngSubmit)="onSubmit(appoitmentForm)" #appoitmentForm="ngForm">
+                <div class="d-flex flex-wrap justify-content-between">
+                    <!-- Doctor Selection -->
+                    <div class="dropdown me-3 w-30">
+                        <button class="btn btn-primary dropdown-toggle w-100" type="button" id="select_dr"
+                            name="select_dr" data-bs-toggle="dropdown" aria-expanded="false"
+                            [(ngModel)]="selectedOption">
+                            {{ selectedOption !== '' ? selectedOption : 'Select Doctor' }}
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="select_dr">
+                            @for (item of doctorsData; track $index) {
+                            <li><a class="dropdown-item" (click)="getDoctorInfo(item.email);selectDoctor(item.dr_id, item.name,item.email)">Name:{{item.name}}</a></li>
+                            }
+                        </ul>
+                        </div>
+
+                    <!-- DateTime Input -->
+                    <div class="me-3 w-25">
+                        <input type="datetime-local" class="form-control" name="date_time" id="date_time"
+                            [(ngModel)]="selectedDate">
+                        <p>{{ selectedDate}}</p>
+                    </div>
+
+                    <!-- Disease Selection -->
+                    <div class="dropdown me-3 w-30">
+                        <button class="btn btn-primary dropdown-toggle w-100" type="button" id="select_ds"
+                            name="select_ds" data-bs-toggle="dropdown" aria-expanded="false"
+                            [(ngModel)]="dsselectedOption">
+                            {{ dsselectedOption !== '' ? dsselectedOption : 'Select Your Problem' }}
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="select_ds">
+                            @for (item of diseasesData; track $index) {
+                            <li><a class="dropdown-item" (click)="getDiseasesInfo(item.ds_id)">{{item.name}}</a></li>
+                            }
+                        </ul>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div>
+                        <!-- <button class="btn btn-primary" [disabled]="subButtonflg">Submit</button> -->
+                        <button class="btn btn-primary" [disabled]="subButtonflg">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- Appointment Details -->
+        @if (!appflg) {
+        <div class="appointment-details">
+            @for (item of appoitmentData; track $index) {
+            @if (item.email === this.user && item.date_time > currentDateTime) {
+            <table class="table table-striped table-bordered shadow-sm">
+                <thead class="table-info">
+                    <tr>
+                        <th colspan="2" class="text-center">Appoitment Details
+                            <button class="btn btn-danger float-end" (click)="cancelAppointment(item.ap_id)">Cancel</button>
+
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="fw-bold">Name</td>
+                        <td>Mr/Ms.{{' '+item.name }}</td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold">Email</td>
+                        <td>{{ item.email }}</td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold">Date & Time</td>
+                        <td>
+                            <b>Date/Time:</b> {{item.date_time.split('T')[0]+' ' }}{{ item.date_time | formatAMPM}} <br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold">Doctor Name</td>
+                        <td>{{ item.doctor_name }}</td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold">Issue</td>
+                        <td>{{ item.diseases }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            } 
+                
+            }
+        </div>
+        }
+    </div>
+    <div class="alert alert-warning" role="alert" [hidden]="this.subButtonflg">
+        <div class="text-center"> Your Appoitment is expired or not booked yet ,please book your appoitment again.</div>
+      
+      </div>
+
+      @if (historyFlg == true)  {
+      <section class="bg-light py-5">
+        <div class="container">
+          <div class="text-center mb-4">
+            <h2 class="fw-bold">Patient History</h2>
+            <p class="text-muted">View your past appointments and details</p>
+          </div>
+      
+          <div class="row g-4">
+            <!-- Example History Card -->
+            @for (item of appoitmentData; track $index) {
+                @if (item.email === this.user && item.date_time <= currentDateTime) {
+            <div class="col-md-6 col-lg-4">
+              <div class="card shadow-sm border-0">
+                <div class="card-body">
+                  <h5 class="card-title fw-bold text-primary">Appointment {{item.ap_id}}</h5>
+                  <p class="card-text">
+                    <strong>Date:</strong> <span>{{' '+item.date_time.split('T')[0]+' ' }}</span><br />
+                    <strong>Time:</strong> <span>{{ ' '+item.date_time | formatAMPM}}</span><br />
+                    <strong>Doctor:</strong> <span>{{ ' '+item.doctor_name}}</span><br />
+                    <strong>Email:</strong> <span>{{ ' '+item.email}}</span><br />
+                    <strong>Issue:</strong> <span>{{' '+item.diseases}}</span>
+                  </p>
+                  <div class="d-flex justify-content-between">
+                    <!-- <a href="#" class="btn btn-sm btn-outline-primary">View Details</a> -->
+                    <a href="#" class="btn btn-sm btn-outline-danger" (click)="cancelAppointment(item.ap_id)">Delete</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+      
+            <!-- Repeat this card for each appointment dynamically -->
+        }
+    }
+          </div>
+        </div>
+      </section>
+    }
+
+      
+</div>
+
+<app-side-bar></app-side-bar>

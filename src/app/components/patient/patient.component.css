@@ -1,0 +1,11 @@
+.middle-content {
+    position: absolute; /* Or 'relative' depending on your design */
+    top: 0;
+    left: 250px; /* Start the content after the sidebar */
+    width: calc(100% - 250px); /* Make the content fill the remaining width */
+    padding: 20px;
+    /* background-color: lightblue; */
+    height: 100vh; /* Full height of the viewport */
+    overflow-y: auto; /* Allow scrolling if the content is taller than the viewport */
+    margin-top: 44px;
+  }

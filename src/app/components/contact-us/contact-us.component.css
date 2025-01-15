@@ -1,0 +1,50 @@
+
+body {
+    background: linear-gradient(135deg, #6d5dfc, #89d4cf);
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.card {
+    background: #fff;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+.header-img {
+    height: 100%;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    object-fit: cover;
+}
+.form-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #6d5dfc;
+}
+.form-control {
+    border-radius: 10px;
+}
+.btn-primary {
+    background: #6d5dfc;
+    border: none;
+    border-radius: 30px;
+    font-size: 1rem;
+    padding: 10px;
+    transition: background 0.3s ease;
+}
+.btn-primary:hover {
+    background: #5e60ce;
+}
+@media (max-width: 768px) {
+    .row.g-0 .col-md-5 {
+        display: none;
+    }
+    .col-md-7 {
+        padding: 2rem 1.5rem;
+    }
+}

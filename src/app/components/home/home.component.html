@@ -1,64 +1,205 @@
-<section class="vh-100">
-    <div class="container-fluid h-custom">
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col-md-9 col-lg-6 col-xl-5">
-          <img src="https://watermark.lovepik.com/photo/40177/5140.jpg_wh1200.jpg"
-            class="img-fluid" alt="Sample image">
+<section class="vh-100" style="background-color: #f7f7f7;">
+  <div class="container-fluid h-custom">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <!-- Left Column with Image -->
+      <div id="carouselExample" class="carousel slide col-md-9 col-lg-6 col-xl-5" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-bs-interval="3000">
+            <img
+              src="https://watermark.lovepik.com/photo/40177/5140.jpg_wh1200.jpg"
+              class="d-block w-100 img-fluid rounded shadow-lg"
+              alt="Sample image 1"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+            src ="https://files.yappe.in/place/full/ameena-hospital-3251395.webp"
+              class="d-block w-100 img-fluid rounded shadow-lg"
+              alt="Sample image 2"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+            src="https://www.practo.com/consumer-ui/_next/image?url=https%3A%2F%2Fimages1-fabric.practo.com%2Faamina-hospital-solapur-1470224660-57a1d91423032.jpg&w=3840&q=75"
+              class="d-block w-100 img-fluid rounded shadow-lg"
+              alt="Sample image 3"
+            />
+          </div>
+          <div class ="carousel-item">
+            <img src ="https://files.yappe.in/place/full/amina-hospital-dr-saiyad-mazar-3247972.webp"
+            class="d-block w-100 img-fluid rounded shadow-lg"
+              alt="Sample image 4">
+          </div>
+          <div class ="carousel-item">
+            <img src ="https://www.practo.com/consumer-ui/_next/image?url=https%3A%2F%2Fimages1-fabric.practo.com%2Faamina-hospital-solapur-1470224660-57a1d9146aee5.jpg&w=3840&q=75"
+            class="d-block w-100 img-fluid rounded shadow-lg"
+              alt="Sample image 5">
+          </div>
         </div>
-        <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-          <form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
-            <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
-              <p class="lead fw-normal mb-0 me-3">Sign in with</p>
-              <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-floating mx-1">
-                <i class="fab fa-facebook-f"></i>
-              </button>
-  
-              <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-floating mx-1">
-                <i class="fab fa-twitter"></i>
-              </button>
-  
-              <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-floating mx-1">
-                <i class="fab fa-linkedin-in"></i>
-              </button>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExample"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExample"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      
+
+      <!-- Right Column for Form -->
+      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+        <form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
+          <div class="text-center mb-4">
+            <h2 class="fw-bold mb-3" style="letter-spacing: 1px; color: #5a5a5a;">
+              Sign into your account
+            </h2>
+            <img
+              src="data:image/png;base64,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"
+              class="img-fluid rounded-circle shadow-sm"
+              alt="Logo"
+              style="width: 60px; height: 60px;"
+            />
+          </div>
+
+          <!-- Form Fields -->
+          <div class="form-outline mb-4">
+            <input
+              type="email"
+              id="form3Example3"
+              class="form-control form-control-lg"
+              placeholder="Enter a valid email address"
+              formControlName="email"
+            />
+            <label class="form-label" for="form3Example3">Email address</label>
+          </div>
+
+          <div class="form-outline mb-4">
+            <input
+              type="password"
+              id="form3Example4"
+              class="form-control form-control-lg"
+              placeholder="Enter password"
+              formControlName="password"
+            />
+            <label class="form-label" for="form3Example4">Password</label>
+          </div>
+
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="form-check mb-0">
+              <input
+                class="form-check-input me-2"
+                type="checkbox"
+                value=""
+                id="form2Example3"
+              />
+              <label class="form-check-label" for="form2Example3">Remember me</label>
             </div>
-  
-            <div class="divider d-flex align-items-center my-4">
-              <p class="text-center fw-bold mx-3 mb-0">Or</p>
+            <a
+  class="text-body"
+  (click)="openForgotPasswordModal()"
+  style="font-size: 0.9rem; color: #007bff; text-decoration: none;"
+  >Forgot password?</a
+>
+          </div>
+
+          <div class="text-center text-lg-start mt-4 pt-2">
+            <!-- Error Message for Authentication -->
+             @if(!not_auth_val && not_auth_val !== null){
+            <div
+              
+              class="alert alert-danger"
+              role="alert"
+            >
+              Please check Username and Password
             </div>
-  
-            <!-- Email input -->
-            <div data-mdb-input-init class="form-outline mb-4">
-              <input type="email" id="form3Example3" class="form-control form-control-lg"
-                placeholder="Enter a valid email address" formControlName ="email"/>
-              <label class="form-label" for="form3Example3">Email address</label>
-            </div>
-  
-            <!-- Password input -->
-            <div data-mdb-input-init class="form-outline mb-3">
-              <input type="password" id="form3Example4" class="form-control form-control-lg"
-                placeholder="Enter password" formControlName ="password"/>
-              <label class="form-label" for="form3Example4">Password</label>
-            </div>
-  
-            <div class="d-flex justify-content-between align-items-center">
-              <!-- Checkbox -->
-              <div class="form-check mb-0">
-                <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
-                <label class="form-check-label" for="form2Example3">
-                  Remember me
-                </label>
-              </div>
-              <a href="#!" class="text-body">Forgot password?</a>
-            </div>
-  
-            <div class="text-center text-lg-start mt-4 pt-2">
-              <button  type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg"
-                style="padding-left: 2.5rem; padding-right: 2.5rem;" >Login</button>
-              <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="#!"
-                  class="link-danger">Register</a></p>
-            </div>
-          </form>
-        </div>
+          }
+
+            <button
+              type="submit"
+              class="btn btn-primary btn-lg"
+              style="padding-left: 2.5rem; padding-right: 2.5rem; border-radius: 50px; width: 100%;"
+            >
+              Login
+            </button>
+
+            <p class="small fw-bold mt-2 pt-1 mb-0">
+              Don't have an account? <a routerLink="register" class="link-danger">Register</a>
+            </p>
+          </div>
+        </form>
       </div>
     </div>
-      </section>
+  </div>
+
+  <!-- Forgot Password Modal -->
+  <ng-template #forgotPasswordModal let-modal>
+    <div class="modal-header">
+      <h5 class="modal-title">Forgot Password</h5>
+      <button
+        type="button"
+        class="btn-close"
+        aria-label="Close"
+        (click)="onClose(modal)"
+      ></button>
+    </div>
+    <div class="modal-body">
+      <form  #modalForm="ngForm">
+        @if (confirm_psw_flg === 1 || confirm_psw_flg === 0) {
+        <div class="mb-3">
+          <label for="email" class="form-label">Enter your email address:</label>
+          <input
+            type="email"
+            class="form-control"
+            name="modal_email" id="modal_email"
+            [(ngModel)]="modal_email"
+            placeholder="Email address"
+          />
+        </div>
+        
+      }
+         @else if (confirm_psw_flg === 2) {
+          <div class="mb-3">
+          <label for="otp" class="form-label">Enter OTP:</label>
+          <input
+            type="text"
+            class="form-control"
+            name="modal_otp" id="modal_otp"
+            [(ngModel)]="modal_otp"
+            placeholder="Enter OTP"
+          />
+        </div>
+         }
+         <div class="mb-3">
+         <span style="color: red;" [hidden]="hidden_span">Your EmailID is not Registered please check your EmailID</span>
+        </div>
+        
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="onSubmitModal(modalForm)"
+        >
+          Submit
+        </button>&nbsp;
+        <button
+        type="button"
+        class="btn btn-primary"
+        (click)="onResetModal()"
+      >
+        Reset
+      </button>
+
+      </form>
+    </div>
+  </ng-template>  
+</section>

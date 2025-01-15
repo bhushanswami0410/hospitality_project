@@ -1,0 +1,134 @@
+<div class="middle-content bg-light">
+    <div class="container mt-5">
+        <!-- Welcome Section -->
+        <div class="text-center mb-4">
+            <h1 class="fw-bold text-primary">Welcome, {{ user?.split('@')[0] }}</h1>
+            <p class="text-muted">Manage appointments efficiently and effortlessly</p>
+        </div>
+
+        <!-- Receptionist Information -->
+        <div class="patient-info mb-5 p-4 shadow rounded bg-white">
+            <h4 class="fw-bold text-center mb-4 text-secondary">Receptionist Information</h4>
+            <table class="table table-bordered table-striped table-hover text-center">
+                <thead class="table-primary">
+                    <tr>
+                        <th colspan="2" class="text-center">Patient Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="fw-bold text-secondary">Name</td>
+                        <td class="text-primary">{{ patientData?.name }}</td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold text-secondary">Email</td>
+                        <td class="text-primary">{{ patientData?.email }}</td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold text-secondary">Phone</td>
+                        <td class="text-primary">{{ patientData?.contactNumber }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Appointment Form -->
+        <div class="appointment-form bg-white p-4 shadow rounded mb-5">
+            <h3 class="text-center mb-4 text-primary">Appointment Form</h3>
+            <form (ngSubmit)="onSubmit(appointmentForm)" #appointmentForm="ngForm">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" name="name" [(ngModel)]="enteredName"
+                            placeholder="Enter your name" required />
+                    </div>
+                    <div class="col-md-6">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" [(ngModel)]="emailAddress"
+                            placeholder="Enter your email" />
+                    </div>
+                    <div class="col-md-6">
+                        <label for="mobile" class="form-label">Mobile Number</label>
+                        <input type="tel" class="form-control" id="mobile" name="mobile" [(ngModel)]="contactNumber"
+                            placeholder="Enter your mobile number" required />
+                    </div>
+                    <div class="col-md-6">
+                        <label for="select_ds" class="form-label">Select Doctor</label>
+                        <select class="form-select" id="select_ds" name="select_ds" [(ngModel)]="selectedDoctorId"
+                            (change)="selectDoctor(selectedDoctorId)" required>
+                            <option value="" selected>Select Doctor</option>
+                            @for (doctor of doctorsData; track $index) {
+                            <option [value]="doctor.dr_id">
+                                {{ doctor.name }}
+                            </option>
+                            }
+                        </select>
+                    </div>
+
+
+                    <div class="col-md-6">
+                        <label for="date_time" class="form-label">Date & Time</label>
+                        <input type="datetime-local" class="form-control" id="date_time" name="date_time"
+                            [(ngModel)]="selectedDate" required />
+                    </div>
+                    <div class="col-md-6">
+                        <label for="select_ds" class="form-label">Select Your Problem</label>
+                        <select class="form-select" id="select_ds" name="select_ds" [(ngModel)]="selectedDisease"
+                            required>
+                            <option value="" selected>Select Your Problem</option>
+                            @for (disease of diseasesData; track $index) {
+                            <option [value]="disease.name" (click)="selectDisease(disease.name)">
+                                {{ disease.name }}
+                            </option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="text-center mt-4">
+                    <button class="btn btn-primary w-100" type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Patients List -->
+            @if (!historyFlg) {
+        <div class="patients-list table-responsive">
+            <h4 class="fw-bold text-center mb-3 text-secondary">Patients List</h4>
+            <table class="table table-bordered table-hover align-middle">
+                <thead class="table-dark text-white">
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Date & Time</th>
+                        <th>Issue</th>
+                        <th>Doctor</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (appointment of appointments; track $index) {
+                    @if (appointment.date_time >= currentDateTime ) {
+                    <tr>
+                        <td>{{ $index + 1 }}</td>
+                        <td>{{ appointment.name }}</td>
+                        <td>{{ appointment.email }}</td>
+                        <td>{{ appointment.date_time }}</td>
+                        <td>{{ appointment.diseases }}</td>
+                        <td>{{ appointment.doctor_name }}</td>
+                        <td>
+                            <button class="btn btn-sm btn-danger" (click)="cancelAppointment(appointment.ap_id)">
+                                Cancel
+                            </button>
+                        </td>
+                    </tr>
+                    }
+                    }
+                </tbody>
+            </table>
+        </div>
+        }
+    </div>
+</div>
+
+<app-side-bar></app-side-bar>

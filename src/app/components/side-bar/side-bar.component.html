@@ -1,0 +1,13 @@
+<!-- Sidebar Toggle Button -->
+<!-- <button id="sidebar-toggle" (click)="toggleSidebar()">☰</button> -->
+
+<!-- Sidebar -->
+<div class="sidebar" [ngClass]="{'open': isSidebarOpen}">
+    <a class="active" href="#home">Dashboard</a>
+        @if (user_role === 'receptionist') {
+        <a routerLink="appoitment_report" routerLinkActive="active">Appoitment Report</a>
+        }
+       
+    
+</div>
+

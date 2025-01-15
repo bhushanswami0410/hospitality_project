@@ -1,0 +1,150 @@
+<div class="middle-content py-5 bg-light">
+    <div class="container">
+      <!-- Welcome Section -->
+      <div class="text-center mb-4">
+        <h1 class="fw-bold text-primary">Welcome, {{ user.split('@')[0] }}</h1>
+      </div>
+  
+      <!-- Doctor Information -->
+      <div class="patient-info mb-5">
+        <h4 class="fw-bold text-center mb-4 text-secondary">Doctor Information</h4>
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <table class="table table-bordered table-hover">
+              <thead class="table-info">
+                <tr>
+                  <th colspan="2" class="text-center">Details</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="fw-bold text-secondary">Name</td>
+                  <td class="text-primary">{{ patientData?.name }}</td>
+                </tr>
+                <tr>
+                  <td class="fw-bold text-secondary">Email</td>
+                  <td class="text-primary">{{ patientData?.email }}</td>
+                </tr>
+                <tr>
+                  <td class="fw-bold text-secondary">Phone</td>
+                  <td class="text-primary">{{ patientData?.contactNumber }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Appointment Filters -->
+      <div class="mb-5 text-center">
+        <h4 class="fw-bold text-secondary">Filter Appointments</h4>
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-4">
+            <label for="dateFilter" class="form-label fw-bold">Select a Date:</label>
+            <input
+              type="date"
+              id="dateFilter"
+              class="form-control"
+              [(ngModel)]="selectedDate"
+              (change)="filterAppointmentsByDate()"
+            />
+          </div>
+        </div>
+      </div>
+  
+      <!-- Appointments Section -->
+      <div class="card shadow-sm mb-4">
+        <div class="card-body">
+          <!-- Future Appointments -->
+          <div class="mb-5">
+            <div class="card shadow-sm">
+              <div class="card-header bg-primary text-white text-center">
+                <h5 class="mb-0 fw-bold">Today's Appointments</h5>
+              </div>
+              <div class="card-body">
+                <div *ngIf="filteredFutureAppointments.length > 0">
+                  <div class="table-responsive">
+                    <table class="table table-bordered table-hover">
+                      <thead class="table-dark">
+                        <tr>
+                          <th>#</th>
+                          <th>Name</th>
+                          <th>Email</th>
+                          <th>Date & Time</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let item of filteredFutureAppointments; let i = index">
+                          <td>{{ i + 1 }}</td>
+                          <td>{{ item.name }}</td>
+                          <td>{{ item.email }}</td>
+                          <td>{{ item.date_time.split('T')[0] + ' ' }}{{ item.date_time | formatAMPM }}</td>
+                          <td>
+                            <!-- <button class="btn btn-sm btn-primary" (click)="viewDetails(item)">
+                              View
+                            </button> -->
+                            <button class="btn btn-sm btn-danger" (click)="cancelAppointment(item.ap_id)">
+                              Cancel
+                            </button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div *ngIf="filteredFutureAppointments.length === 0" class="alert alert-info text-center">
+                  No future appointments for the selected date.
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Past Appointments -->
+          <div>
+            <div class="card shadow-sm">
+              <div class="card-header bg-secondary text-white text-center">
+                <h5 class="mb-0 fw-bold">Appointment's History</h5>
+              </div>
+              <div class="card-body">
+                <div *ngIf="filteredPastAppointments.length > 0">
+                  <div class="table-responsive">
+                    <table class="table table-bordered table-hover">
+                      <thead class="table-dark">
+                        <tr>
+                          <th>#</th>
+                          <th>Name</th>
+                          <th>Email</th>
+                          <th>Date & Time</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let item of filteredPastAppointments; let i = index">
+                          <td>{{ i + 1 }}</td>
+                          <td>{{ item.name }}</td>
+                          <td>{{ item.email }}</td>
+                          <td>{{ item.date_time.split('T')[0] + ' ' }}{{ item.date_time | formatAMPM }}</td>
+                          <td>
+                            <button class="btn btn-sm btn-danger" (click)="cancelAppointment(item.ap_id)">
+                              Cancel
+                            </button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div *ngIf="filteredPastAppointments.length === 0" class="alert alert-info text-center">
+                  No past appointments for the selected date.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <app-side-bar></app-side-bar>
+  

@@ -1,0 +1,144 @@
+
+<div class="middle-content">
+    <div class="container mt-5">
+        <!-- Welcome Section -->
+        <div class="text-center mb-4">
+            <h1>Welcome,</h1>
+        </div>
+
+        <!-- Patient Information -->
+        <div class="container mt-5">
+            <h2 class="text-center mb-4">Doctor Registration Form</h2>
+            <form [formGroup]="doctorForm"  (ngSubmit)="onSubmit()" class="shadow p-4 rounded bg-light">
+              <!-- Doctor ID (Read-only) -->
+              <!-- Name -->
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  id="name"
+                  class="form-control"
+                  formControlName="name"
+                  placeholder="Doctor Name"
+                />
+                <label for="name">Name</label>
+              </div>
+          
+              <!-- Degree -->
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  id="degree"
+                  class="form-control"
+                  formControlName="degree"
+                  placeholder="Degree"
+                />
+                <label for="degree">Degree</label>
+              </div>
+          
+              <!-- Specialization -->
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  id="specialization"
+                  class="form-control"
+                  formControlName="specialization"
+                  placeholder="Specialization"
+                />
+                <label for="specialization">Specialization</label>
+              </div>
+          
+              <!-- Experience -->
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  id="exp"
+                  class="form-control"
+                  formControlName="exp"
+                  placeholder="Experience"
+                />
+                <label for="exp">Experience (in years)</label>
+              </div>
+          
+              <!-- Result -->
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  id="result"
+                  class="form-control"
+                  formControlName="result"
+                  placeholder="Result"
+                />
+                <label for="result">Result</label>
+              </div>
+          
+              <!-- Doctor Email -->
+              <!-- ID -->
+
+          
+              <!-- Email -->
+              <div class="form-floating mb-3">
+                <input
+                  type="email"
+                  id="email"
+                  class="form-control"
+                  formControlName="email"
+                  placeholder="Email"
+                />
+                <label for="email">Doctor Email</label>
+              </div>
+          
+              <!-- Submit Button -->
+              <button
+                type="submit"
+                class="btn btn-primary w-100 btn-lg"
+               
+              >
+                Submit
+              </button>
+            </form>
+          </div>
+          <div class="table-responsive">
+            <h4 class="fw-bold text-center mb-3">Doctors List</h4>
+            <table class="table table-bordered table-striped table-hover">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Degree</th>
+                  <th scope="col">Experience</th>
+                  <th scope="col">Specialization</th>
+                  <th scope="col">Result</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (item of allDoctors; track $index) {
+                <tr>
+                  <td>{{ $index + 1 }}</td>
+                  <td>{{ item.name }}</td>
+                  <td>{{ item.email }}</td>
+                  <td>{{ item.degree }}</td>
+                  <td>{{ item.exp }}</td>
+                  <td>{{ item.specialization }}</td>
+                  <td>{{ item.result }}</td>
+
+                  <td>
+                    <button
+                      class="btn btn-sm btn-danger"
+                      (click)="deleteDoctor(item.dr_id)"
+                    >
+                      Cancel
+                    </button>
+                  </td>
+                </tr>
+            }
+              </tbody>
+            </table>
+          </div>
+          
+
+        
+    </div>
+</div>
+<app-side-bar></app-side-bar>

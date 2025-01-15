@@ -1,0 +1,222 @@
+/* General Styles */
+body {
+    background-color: #f4f4f9;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* .middle-content container adjustments */
+.middle-content {
+    position: absolute;
+    top: 0;
+    left: 250px;
+    width: calc(100% - 250px);
+    padding: 20px;
+    height: 100vh;
+    overflow-y: auto;
+    margin-top: 44px;
+}
+
+/* Adjust padding for middle content */
+.middle-content {
+    padding: 20px 15px;
+}
+
+/* Heading Style */
+h1, h4, h5 {
+    color: #2c3e50;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Table Styles */
+.table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #ddd;
+}
+
+.table th, .table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.table-bordered th, .table-bordered td {
+    border: 1px solid #ddd;
+}
+
+.table-striped tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Button Styles */
+.btn-primary, .btn-outline-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    padding: 8px 12px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover, .btn-outline-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+/* Appointment Form Flex Layout */
+.appointment-form .form-control {
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+/* Flex Layout for Form */
+.d-flex {
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.w-30 {
+    flex: 1 1 30%;
+}
+
+.w-25 {
+    flex: 1 1 25%;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+    /* Adjust widths for form elements */
+    .w-30, .w-25 {
+        flex: 1 1 100%;
+    }
+
+    /* Update middle-content for mobile screens */
+    .middle-content {
+        left: 0;
+        width: 100%;
+        margin-top: 20px;
+        padding: 15px;
+    }
+
+    /* Table padding and text alignment for smaller screens */
+    .table th, .table td {
+        padding: 8px;
+    }
+
+    /* Button size adjustments for mobile */
+    .btn-primary, .btn-outline-primary {
+        font-size: 14px;
+        padding: 6px 10px;
+    }
+
+    /* Heading font size adjustments */
+    h1, h4, h5 {
+        font-size: 18px;
+        text-align: center;
+    }
+
+    /* Ensure the appointment form is stacked on small screens */
+    .appointment-form .d-flex {
+        flex-direction: column;
+    }
+
+    /* Ensure form elements take full width */
+    .appointment-form .form-control, .btn-primary {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    /* Adjusting fonts and margins for extra small screens */
+    h1 {
+        font-size: 20px;
+    }
+
+    h4, h5 {
+        font-size: 16px;
+    }
+
+    .table th, .table td {
+        font-size: 12px;
+        padding: 6px;
+    }
+
+    /* Adjust padding for form controls */
+    .appointment-form .form-control {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    /* Button adjustments for very small screens */
+    .btn-primary, .btn-outline-primary {
+        font-size: 12px;
+        padding: 6px 8px;
+    }
+
+    /* Flexbox adjustments */
+    .d-flex {
+        gap: 10px;
+    }
+}
+
+/* On very small screens, adjust layout and reduce padding */
+@media (max-width: 400px) {
+    .table th, .table td {
+        padding: 6px;
+        font-size: 10px;
+    }
+
+    .btn-primary, .btn-outline-primary {
+        font-size: 12px;
+        padding: 5px 8px;
+    }
+
+    h1 {
+        font-size: 18px;
+    }
+
+    /* Reduce padding and adjust font sizes for compact layout */
+    .appointment-form .form-control {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .d-flex {
+        gap: 8px;
+    }
+}
+.container {
+  max-width: 600px;
+}
+
+h2 {
+  color: #007bff;
+}
+
+.form-floating {
+  margin-bottom: 15px;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-primary:disabled {
+  background-color: #a6c8ff;
+  border-color: #a6c8ff;
+}
+
+.shadow {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
